@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 
-// rcc -> Class component
-// rfc -> Functional component
-// rafc -> Functional component (arrow style)
-
-// const PaymentDetails = (props) => {
-// let { payor, payee, amount, reason } = props.transaction;
-// const PaymentDetails = ({ transaction: { payor, payee, amount, reason } }) => {
 const PaymentDetails = ({ transaction, toggleCleared }) => {
   const { payor, payee, amount, reason, cleared } = transaction;
 
-  // Two-element array -> tuple
   const [hidePayee, setHidePayee] = useState(true);
 
   function clickHandler() {
@@ -24,7 +16,6 @@ const PaymentDetails = ({ transaction, toggleCleared }) => {
   }
 
   function handleShowPayee() {
-    // hidePayee = !hidePayee;
     setHidePayee(!hidePayee);
   }
 
