@@ -3,35 +3,9 @@ import ControlledComponent from './examples/ControlledComponent';
 import Counter from './examples/Counter';
 import CustomBox from './exercises/CustomBox';
 import GreeterClass from './GreeterClass';
-import PaymentDetails from './payments/PaymentDetails';
-
-const clearedTransaction = {
-  id: '1',
-  payor: 'Katie',
-  payee: 'Ahmed',
-  amount: '$5',
-  reason: 'coffee run',
-  timeStamp: '2020-11-20T10:15:00 AM',
-  requestReference: null,
-  cleared: true,
-};
-
-const pendingTransaction = {
-  id: '2',
-  payor: 'Kent',
-  payee: 'Steven',
-  amount: '$500',
-  reason: 'XBox Series X',
-  timeStamp: '2020-11-21T08:45:00 PM',
-  requestReference: null,
-  cleared: false,
-};
+import PaymentsManager from './payments/PaymentsManager';
 
 function App() {
-  function handleToggleCleared() {
-    console.log('App: Called toggleCleared()');
-  }
-
   return (
     <Router>
       <main className="container">
@@ -50,8 +24,12 @@ function App() {
               <li>
                 <Link to="/route-one">Custom Box</Link>
               </li>
-              <li>Counter</li>
-              <li>Payments</li>
+              <li>
+                <Link to="/counter">Counter</Link>
+              </li>
+              <li>
+                <Link to="/payments">Payments</Link>
+              </li>
             </ul>
           </div>
           <div className="col">
@@ -61,29 +39,14 @@ function App() {
             <Route path="/route-one">
               <CustomBox />
             </Route>
+            <Route path="/counter">
+              <Counter className="foo" />
+            </Route>
+            <Route path="/payments">
+              <PaymentsManager />
+            </Route>
           </div>
         </div>
-
-        {/* <ControlledComponent /> */}
-
-        {/* <CustomBox /> */}
-
-        {/* <Counter className="foo" /> */}
-
-        {/*
-      <section className="row">
-        <div className="col">
-          <PaymentDetails
-            transaction={clearedTransaction}
-            toggleCleared={handleToggleCleared}
-          />
-          <PaymentDetails
-            transaction={pendingTransaction}
-            toggleCleared={handleToggleCleared}
-          />
-        </div>
-      </section>
-      */}
       </main>
     </Router>
   );
