@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import GreeterClass from './GreeterClass';
+import PaymentDetails from './payments/PaymentDetails';
+
+const clearedTransaction = {
+  id: '1',
+  payor: 'Katie',
+  payee: 'Ahmed',
+  amount: '$5',
+  reason: 'coffee run',
+  timeStamp: '2020-11-20T10:15:00 AM',
+  requestReference: null,
+  cleared: true,
+};
+
+const pendingTransaction = {
+  id: '2',
+  payor: 'Kent',
+  payee: 'Steven',
+  amount: '$500',
+  reason: 'XBox Series X',
+  timeStamp: '2020-11-21T08:45:00 PM',
+  requestReference: null,
+  cleared: false,
+};
 
 function App() {
+  function handleToggleCleared() {
+    console.log('App: Called toggleCleared()');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main className="container">
+      <header className="row">
+        <div className="col header-border">
+          <GreeterClass />
+        </div>
       </header>
-    </div>
+      <section className="row">
+        <div className="col">
+          <PaymentDetails
+            transaction={clearedTransaction}
+            toggleCleared={handleToggleCleared}
+          />
+          <PaymentDetails
+            transaction={pendingTransaction}
+            toggleCleared={handleToggleCleared}
+          />
+        </div>
+      </section>
+    </main>
   );
 }
 
