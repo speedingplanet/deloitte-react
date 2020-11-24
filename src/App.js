@@ -1,3 +1,4 @@
+import Counter from './examples/Counter';
 import GreeterClass from './GreeterClass';
 import PaymentDetails from './payments/PaymentDetails';
 
@@ -35,6 +36,9 @@ function App() {
           <GreeterClass />
         </div>
       </header>
+      <Counter />
+
+      {/*
       <section className="row">
         <div className="col">
           <PaymentDetails
@@ -47,6 +51,7 @@ function App() {
           />
         </div>
       </section>
+      */}
     </main>
   );
 }
