@@ -5,9 +5,11 @@ export default function UserDetails({ user }) {
     <div>
       <h3>User Details</h3>
       <ul>
-        <li>Display name goes here</li>
-        <li>Street</li>
-        <li>City, state, zip</li>
+        <li>{user.displayName}</li>
+        <li>{user.address.street}</li>
+        <li>
+          {user.address.city}, {user.address.state} {user.address.postalCode}
+        </li>
       </ul>
     </div>
   );

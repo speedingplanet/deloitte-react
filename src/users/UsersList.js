@@ -9,7 +9,7 @@ export default function UsersList({ users }) {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <Link to="/users/detail">{user.displayName}</Link>
+            <Link to={`/users/detail/${user.id}`}>{user.displayName}</Link>
           </li>
         ))}
       </ul>

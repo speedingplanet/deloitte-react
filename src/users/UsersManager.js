@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { dao } from '@speedingplanet/rest-server';
 import UsersList from './UsersList';
 import { Redirect, Route } from 'react-router-dom';
-import UserDetails from './UserDetails';
+import UserDetailsRouter from './UserDetailsRouter';
 
 export default function UsersManager() {
   const [users, setUsers] = useState([]);
@@ -26,8 +26,8 @@ export default function UsersManager() {
       <Route path="/users/list">
         <UsersList users={users} />
       </Route>
-      <Route path="/users/detail">
-        <UserDetails />
+      <Route path="/users/detail/:userId">
+        <UserDetailsRouter />
       </Route>
       <Route path="/users" exact>
         <Redirect to="/users/list" />
