@@ -4,6 +4,7 @@ import Counter from './examples/Counter';
 import CustomBox from './exercises/CustomBox';
 import GreeterClass from './GreeterClass';
 import PaymentsManager from './payments/PaymentsManager';
+import UsersManager from './users/UsersManager';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
               <li>
                 <Link to="/payments">Payments</Link>
               </li>
+              <li>
+                <Link to="/users">Users</Link>
+              </li>
             </ul>
           </div>
           <div className="col">
@@ -44,6 +48,9 @@ function App() {
             </Route>
             <Route path="/payments">
               <PaymentsManager />
+            </Route>
+            <Route path="/users">
+              <UsersManager />
             </Route>
           </div>
         </div>
